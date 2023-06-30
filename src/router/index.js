@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue';
 import PokemonView from '@/views/PokemonView.vue';
+import NotFound from '@/components/NotFound.vue';
 
 const routes = [
   {
@@ -24,6 +25,18 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
     }
+  },
+  // la ruta para el componente NotFound SIEMPRE DEBE IR AL FINAL
+  {
+    // path: '*',
+    // path: "/:catchAll(.*)",
+    // path: '/:pathMatch(.*)*',
+    // ruta not found para dev
+    // path: "/:catchAll(.*)",
+    //ruta not found para prod
+    path: "/decimo_proyecto_cli_produccion/:catchAll(.*)",
+    name: 'notfound',
+    component: NotFound
   }
 ]
 
